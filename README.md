@@ -45,4 +45,9 @@ Action: Unique events happen in your applicaton components. They intiate state c
 
 ## An action have unique type values(can call it as action name), typically a string and an Optional payload(which is the relavant data needed to perform the state change)
 
-Resucers: Its a pure function which takes the current state and an action as input, and returns a new state.
+Reducers: Its a pure function which takes the current state and an action as input, and returns a new state.
+
+## selector
+
+A feature selector is a pure function used to select a top-level slice of state that belongs to a specific feature of your application
+
