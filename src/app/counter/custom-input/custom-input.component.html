@@ -1,14 +1,44 @@
 <div class="app-custom-value">
     <div class="toggle-btn-container">
-        <button class="toggle-btn" (click)="toggleInput()">
-            {{toggleInputValue?'-':'+'}}
+        <button class="toggle-btn" (click)="toggleAddInput()">
+            Add
+            {{ (toggleAddInputVal$ | async)? '-':'+'}}
+        </button>
+        <button class="toggle-btn" (click)="toggleSubInput()">
+            Sub
+            {{ (toggleSubInputVal$ | async)? '-':'+'}}
+        </button>
+         <button class="toggle-btn" (click)="toggleMultInput()">
+            Mult
+            {{ (toggleMultInputVal$ | async)? '-':'+'}}
+        </button>
+        <button class="toggle-btn" (click)="toggleDivInput()">
+            Div
+            {{ (toggleDivInputVal$ | async)? '-':'+'}}
         </button>
     </div>
-
-    <div class="custom-input-container" *ngIf="toggleInputValue">
-        <input type="text" [(ngModel)]="counter">
-        <button class="btn-increment-by" (click)="incrementBy()"> 
-            Increment By
-        </button>
+    <div class="custom-input-container" *ngIf="toggleAddInputVal$ | async">
+       <div class="input-group">
+            <input type="text" [(ngModel)]="counter">
+            <button class="btn-action" (click)="incrementBy()">Add</button>
+        </div>
+    </div>
+    <div class="custom-input-container" *ngIf="toggleSubInputVal$ | async">
+        <div class="input-group">
+            <input type="text" [(ngModel)]="counter">
+            <button class="btn-action" (click)="decrementBy()">Sub</button>
+        </div>
+    </div>
+    <div class="custom-input-container" *ngIf="toggleMultInputVal$ | async">
+        <div class="input-group">
+            <input type="text" [(ngModel)]="counter">
+            <button class="btn-action" (click)="multiplyBy()">Mult</button>
+        </div>
+    </div>
+    <div class="custom-input-container" *ngIf="toggleDivInputVal$ | async">
+        <div class="input-group">
+            <input type="text" [(ngModel)]="counter">
+            <button class="btn-action" (click)="divideBy()">Div</button>
+        </div>
     </div>
 </div>

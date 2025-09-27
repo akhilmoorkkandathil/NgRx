@@ -1,10 +1,16 @@
 export interface CounterState{
     counter:number,
-    toggleInputValue:boolean
+    toggleAddInput:boolean,
+    toggleSubInput:boolean,
+    toggleMultInput:boolean,
+    toggleDivInput:boolean
 }
 
 
 export const inititalState:CounterState = {
     counter :0,
-    toggleInputValue:false
+    toggleAddInput:false,
+    toggleSubInput:false,
+    toggleMultInput:false,
+    toggleDivInput:false
 }

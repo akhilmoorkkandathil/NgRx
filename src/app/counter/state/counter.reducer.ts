@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { inititalState } from "./counter.state";
-import { customIncrement, decrement, increment, reset, toggleInput } from "./counter.action";
+import { customDecrement, customDivide, customIncrement, customMultiply, decrement, increment, reset, toggleAddInput, toggleDivInput, toggleMultInput, toggleSubInput } from "./counter.action";
 
 
 
@@ -27,13 +27,61 @@ export const counterReducer = createReducer(
     on(customIncrement,(state,action)=>{
         return {
             ...state,
-            counter:state.counter+ +action.val
+            counter:state.counter + +action.val
         }
     }),
-    on(toggleInput,(state) =>{
+    on(customDecrement,(state,action) =>{
         return {
             ...state,
-            toggleInputValue:!state.toggleInputValue
+            counter:state.counter - +action.val
+            }
+    }),
+    on(customMultiply,(state,action) =>{
+        return {
+            ...state,
+            counter:state.counter * +action.val
+            }
+    }),
+    on(customDivide,(state,action) =>{
+        return {
+            ...state,
+            counter:state.counter / +action.val
+            }
+    }),
+    on(toggleAddInput,(state) =>{
+        return {
+            ...state,
+            toggleAddInput:!state.toggleAddInput,
+            toggleDivInput:false,
+            toggleMultInput:false,
+            toggleSubInput:false
+        }
+    }),
+    on(toggleSubInput,(state) =>{
+        return {
+            ...state,
+            toggleSubInput:!state.toggleSubInput,
+            toggleDivInput:false,
+            toggleMultInput:false,
+            toggleAddInput:false
+        }
+    }),
+    on(toggleMultInput,(state) =>{
+        return {
+            ...state,
+            toggleMultInput:!state.toggleMultInput,
+            toggleDivInput:false,
+            toggleSubInput:false,
+            toggleAddInput:false
+        }
+    }),
+    on(toggleDivInput,(state) =>{
+        return {
+            ...state,
+            toggleDivInput:!state.toggleDivInput,
+            toggleSubInput:false,
+            toggleMultInput:false,
+            toggleAddInput:false
         }
     })
 )
