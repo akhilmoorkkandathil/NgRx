@@ -9,30 +9,48 @@
 
 .toggle-btn-container{
     padding: 4px 10px;
-    text-align: right;
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
     background-color: #76008e;
 }
 .toggle-btn{
     background: transparent;
     border: none;
     color: white;
+    cursor: pointer;
     font-size: 20px;
     font-weight: bold;
 }
-.custom-input-container{
-    padding: 20px 30px;
-    border: #CDCDCD 1.5px solid;
+
+.custom-input-container {
+  padding: 20px 30px;
+  border: #CDCDCD 1.5px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* spacing between rows */
 }
-.app-custom-value input{
-    width: 70%;
-    height: 35px;
-    border: #e74c3c 1.5px solid;
-    background-color: transparent;
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between input & button */
 }
-.btn-increment-by{
-    width: 30%;
-    height: 35px;
-    border: none;
-    background-color: #e74c3c;
-    color: white;
+
+.input-group input {
+  flex: 1; /* take remaining space */
+  height: 35px;
+  padding: 3px 5px;
+  border: #e74c3c 1.5px solid;
+  background-color: transparent;
+}
+
+.btn-action {
+  height: 35px;
+  padding: 0 15px;
+  border: none;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap; /* prevents text wrapping */
 }

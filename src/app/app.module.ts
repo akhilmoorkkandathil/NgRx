@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
 import { CustomInputComponent } from './counter/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,11 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({counter:counterReducer})
+    StoreModule.forRoot({counter:counterReducer}),
+    StoreDevtoolsModule.instrument({
+        maxAge: 25, // Retains last 25 states
+        logOnly: !isDevMode(), // Restrict extension to only log actions in production
+      }),
   ],
   providers: [],
   bootstrap: [AppComponent]
