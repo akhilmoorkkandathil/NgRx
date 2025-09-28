@@ -14,6 +14,9 @@ import { counterReducer } from './counter/state/counter.reducer';
 import { CustomInputComponent } from './counter/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { coursesReducer } from './courses/state/course.reducer';
+import { AppState } from './store/app.state';
+import { CourseCardComponent } from './courses/course-card/course-card.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CounterComponent,
     CounterValueComponent,
     CounterButtonComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    CourseCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({counter:counterReducer}),
+    StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({
         maxAge: 25, // Retains last 25 states
         logOnly: !isDevMode(), // Restrict extension to only log actions in production

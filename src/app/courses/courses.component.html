@@ -10,6 +10,8 @@
     </div>
 
     <div class="course-list-container">
-         <!---COURSE CARD-->              
+       <div *ngFor = "let course of courses$ | async">
+          <app-course-card [course]="course"></app-course-card>
+       </div>
     </div>
 </div>
