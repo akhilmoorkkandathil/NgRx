@@ -51,3 +51,6 @@ Reducers: Its a pure function which takes the current state and an action as inp
 
 A feature selector is a pure function used to select a top-level slice of state that belongs to a specific feature of your application
 
+Next step
+
+Do cred for courses with the help of store.
